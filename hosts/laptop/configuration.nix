@@ -142,4 +142,5 @@
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.martin = ./home.nix;
+  home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 }
