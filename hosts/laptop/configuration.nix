@@ -139,10 +139,42 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    wezterm
-    vscode
-    spotify
+    # Development
     nixfmt
+    nodejs_24
+    postman
+    python314
+    vscode
+    wezterm
+
+    # Social media, communication, and entertainment
+    discord
+    slack
+    spotify
+    steam
+
+    # Productivity
+    libreoffice
+    obsidian
+
+    # Math
+    geogebra
+
+    # 3D modeling and printing, image editing
+    # bambu-studio
+    kdePackages.kolourpaint
+    krita
+    prusa-slicer
+
+    # Utilities
+    filezilla
+    kdePackages.kamoso
+    kdePackages.kcalc
+    kdePackages.skanpage
+    proton-vpn
+    qbittorrent
+    vlc
+    wireshark
   ];
 
   home-manager.useGlobalPkgs = true;
