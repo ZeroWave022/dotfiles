@@ -49,6 +49,40 @@
       }
     ];
 
+    panels = [
+      {
+        alignment = "left";
+        floating = true;
+        height = 46;
+        hiding = "normalpanel";
+        location = "bottom";
+        opacity = "adaptive";
+
+        widgets = [
+          "org.kde.plasma.kickoff"
+          "org.kde.plasma.pager"
+          {
+            iconTasks = {
+              launchers = [
+                "applications:systemsettings.desktop"
+                "applications:org.kde.discover.desktop"
+                "applications:org.kde.dolphin.desktop"
+                "applications:org.wezfurlong.wezterm.desktop"
+                "applications:code.desktop"
+                "applications:obsidian.desktop"
+                "applications:spotify.desktop"
+                "applications:firefox.desktop"
+              ];
+            };
+          }
+          "org.kde.plasma.marginsseparator"
+          "org.kde.plasma.systemtray"
+          "org.kde.plasma.digitalclock"
+          "org.kde.plasma.showdesktop"
+        ];
+      }
+    ];
+
     desktop.widgets = [
       {
         config = {
