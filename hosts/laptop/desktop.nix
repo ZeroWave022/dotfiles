@@ -7,7 +7,10 @@
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
       theme = "breeze-dark";
+      wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/Nexus/contents/images_dark/5120x2880.png";
     };
+
+    kscreenlocker.appearance.wallpaper = "${pkgs.kdePackages.plasma-workspace-wallpapers}/share/wallpapers/ScarletTree/contents/images_dark/5120x2880.png";
 
     input.mice = [
       {
