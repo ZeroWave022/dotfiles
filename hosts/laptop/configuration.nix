@@ -90,10 +90,12 @@
     packages = with pkgs; [
       kdePackages.kate
     ];
+    shell = pkgs.zsh;
   };
 
   programs = {
     firefox.enable = true;
+    zsh.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;

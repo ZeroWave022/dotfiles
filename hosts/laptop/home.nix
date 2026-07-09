@@ -27,6 +27,17 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    localVariables = {
+      DEFAULT_USER = "martin";
+    };
+    oh-my-zsh = {
+      enable = true;
+      theme = "agnoster";
+    };
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
