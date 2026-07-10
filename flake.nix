@@ -27,6 +27,9 @@
       ...
     }:
     {
+      overlay = final: prev: {
+        synaTudor = final.callPackage ./pkgs/synaTudor { };
+      };
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -35,6 +38,7 @@
             ./hosts/laptop/configuration.nix
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            ({ pkgs, ... }: { nixpkgs.overlays = [ inputs.self.overlay ]; })
           ];
         };
       };
