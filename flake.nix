@@ -16,6 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
@@ -24,6 +25,7 @@
       home-manager,
       sops-nix,
       plasma-manager,
+      spicetify-nix,
       ...
     }:
     {
@@ -38,6 +40,7 @@
             ./hosts/laptop/configuration.nix
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
+            spicetify-nix.nixosModules.spicetify
             ({ pkgs, ... }: { nixpkgs.overlays = [ inputs.self.overlay ]; })
           ];
         };

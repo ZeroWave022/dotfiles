@@ -9,6 +9,9 @@
   ...
 }:
 
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+in
 {
   imports = [
     # Include the results of the hardware scan.
@@ -116,6 +119,12 @@
       enable = true;
       enableSSHSupport = true;
     };
+    spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+      ];
+    };
   };
 
   # Allow unfree packages
@@ -168,7 +177,6 @@
     # Social media, communication, and entertainment
     discord
     slack
-    spotify
     steam
 
     # Productivity
