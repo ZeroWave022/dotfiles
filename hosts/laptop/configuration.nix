@@ -189,6 +189,7 @@
     kdePackages.kamoso
     kdePackages.kcalc
     kdePackages.skanpage
+    lm_sensors
     proton-vpn
     qbittorrent
     vlc
