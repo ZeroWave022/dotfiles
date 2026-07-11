@@ -11,7 +11,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./secrets.nix
     ./fingerprint.nix
   ];
 
@@ -189,5 +188,8 @@ in
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = { inherit inputs; };
   home-manager.users.martin = import ./home.nix;
-  home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
+  home-manager.sharedModules = [
+    inputs.plasma-manager.homeModules.plasma-manager
+    inputs.sops-nix.homeManagerModules.sops
+  ];
 }
