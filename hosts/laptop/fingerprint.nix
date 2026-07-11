@@ -20,4 +20,8 @@
       driver = pkgs.synaTudor;
     };
   };
+
+  # Disable fingerprint authentication for login to avoid waiting for fingerprint
+  # if the fingerprint reader is not working.
+  security.pam.services.login.fprintAuth = false;
 }
