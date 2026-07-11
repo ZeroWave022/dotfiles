@@ -16,7 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,7 +32,7 @@
       ...
     }:
     {
-      overlay = final: prev: {
+      overlays.default = final: prev: {
         synaTudor = final.callPackage ./pkgs/synaTudor { };
       };
       nixosConfigurations = {
@@ -41,7 +44,7 @@
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             spicetify-nix.nixosModules.spicetify
-            ({ pkgs, ... }: { nixpkgs.overlays = [ inputs.self.overlay ]; })
+            ({ pkgs, ... }: { nixpkgs.overlays = [ inputs.self.overlays.default ]; })
           ];
         };
       };
