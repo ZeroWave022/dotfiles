@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
@@ -14,29 +10,18 @@ let
 in
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./secrets.nix
     ./fingerprint.nix
   ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 32 * 1024;
-    }
-  ];
+  networking.hostName = "laptop";
 
-  networking.hostName = "laptop"; # Define your hostname.
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Warsaw";
 
   # Select internationalisation properties.
@@ -55,7 +40,6 @@ in
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
@@ -66,9 +50,9 @@ in
   services.xserver.xkb = {
     layout = "no,pl,us,es";
     variant = "";
+    options = "grp:win_space_toggle";
   };
 
-  # Configure console keymap
   console.keyMap = "no";
 
   # Enable CUPS to print documents.
@@ -105,9 +89,6 @@ in
     extraGroups = [
       "networkmanager"
       "wheel"
-    ];
-    packages = with pkgs; [
-      kdePackages.kate
     ];
     shell = pkgs.zsh;
   };
@@ -207,6 +188,6 @@ in
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.extraSpecialArgs = { inherit inputs; };
-  home-manager.users.martin = ./home.nix;
+  home-manager.users.martin = import ./home.nix;
   home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 }

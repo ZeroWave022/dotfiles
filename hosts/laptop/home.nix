@@ -7,6 +7,9 @@
 
   home.username = "martin";
   home.homeDirectory = "/home/martin";
+  home.packages = with pkgs; [
+    kdePackages.kate
+  ];
 
   programs.home-manager.enable = true;
 

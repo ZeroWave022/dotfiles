@@ -32,6 +32,10 @@
     serviceConfig = {
       Type = "oneshot";
       User = "martin";
+      ProtectSystem = "strict";
+      ProtectHome = false;
+      NoNewPrivileges = true;
+      ReadWritePaths = [ "${config.users.users."martin".home}/.gnupg" ];
       ExecStart = "${pkgs.gnupg}/bin/gpg --batch --passphrase-file ${config.sops.secrets.gitgpg-pass.path} --import ${config.sops.secrets.gitgpg.path}";
     };
   };
