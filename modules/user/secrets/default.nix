@@ -1,3 +1,7 @@
+# Secrets used in the home-manager configuration.
+# May contain duplicates of secrets used the NixOS modules configuration,
+# if they're needed in both places.
+
 {
   config,
   pkgs,
