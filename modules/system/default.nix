@@ -14,6 +14,7 @@
     ./packages
     ./printing
     ./programs
+    ./secrets
     ./users
   ];
 }
