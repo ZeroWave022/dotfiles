@@ -31,22 +31,31 @@
       spicetify-nix,
       ...
     }:
+    let
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/${hostname}
+            ./modules/system
+            home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
+            spicetify-nix.nixosModules.spicetify
+            {
+              networking.hostName = hostname;
+              nixpkgs.overlays = [ inputs.self.overlays.default ];
+            }
+          ];
+        };
+    in
     {
       overlays.default = final: prev: {
         synaTudor = final.callPackage ./pkgs/synaTudor { };
       };
       nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/laptop
-            home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            spicetify-nix.nixosModules.spicetify
-            ({ pkgs, ... }: { nixpkgs.overlays = [ inputs.self.overlays.default ]; })
-          ];
-        };
+        laptop = mkHost "laptop";
       };
     };
 }
