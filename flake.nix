@@ -54,6 +54,16 @@
       overlays.default = final: prev: {
         synaTudor = final.callPackage ./pkgs/synaTudor { };
       };
+      nixosModules = {
+        system = import ./modules/system;
+        laptop = import ./modules/laptop;
+      };
+      homeManagerModules = {
+        user = import ./modules/user;
+        laptop = {
+          input = import ./modules/laptop/input;
+        };
+      };
       nixosConfigurations = {
         laptop = mkHost "laptop";
       };

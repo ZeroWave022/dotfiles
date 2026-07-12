@@ -1,13 +1,13 @@
-{ ... }:
+{ inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/laptop
+    inputs.self.nixosModules.laptop
   ];
 
   home-manager.users.martin.imports = [
-    ../../modules/laptop/input
+    inputs.self.homeManagerModules.laptop.input
   ];
 
   # This value determines the NixOS release from which the default
