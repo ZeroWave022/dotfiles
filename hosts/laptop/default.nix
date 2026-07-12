@@ -3,11 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/system
     ../../modules/laptop
   ];
-
-  networking.hostName = "laptop";
 
   home-manager.users.martin.imports = [
     ../../modules/laptop/input
