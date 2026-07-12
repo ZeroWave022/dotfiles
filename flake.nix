@@ -40,7 +40,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/laptop/configuration.nix
+            ./hosts/laptop
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             spicetify-nix.nixosModules.spicetify
