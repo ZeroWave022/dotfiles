@@ -28,7 +28,6 @@
             iconTasks = {
               launchers = [
                 "applications:systemsettings.desktop"
-                "applications:org.kde.discover.desktop"
                 "applications:org.kde.dolphin.desktop"
                 "applications:org.wezfurlong.wezterm.desktop"
                 "applications:code.desktop"
