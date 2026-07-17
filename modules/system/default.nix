@@ -16,5 +16,6 @@
     ./programs
     ./secrets
     ./users
+    ./virtualisation
   ];
 }
