@@ -24,7 +24,7 @@
     # 3D modeling and printing, image editing
     # bambu-studio
     kdePackages.kolourpaint
-    krita
+    inkscape
     prusa-slicer
 
     # Utilities
