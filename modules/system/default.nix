@@ -6,6 +6,7 @@
     ./bluetooth
     ./boot
     ./desktop
+    ./flatpak
     ./fonts
     ./home-manager
     ./i18n
