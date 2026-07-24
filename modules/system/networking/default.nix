@@ -17,7 +17,10 @@ let
   };
 in
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = false;
+  };
 
   networking.firewall = {
     allowedUDPPorts = [ 51820 ];
