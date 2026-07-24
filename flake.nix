@@ -20,6 +20,7 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs =
@@ -29,6 +30,7 @@
       sops-nix,
       plasma-manager,
       spicetify-nix,
+      nix-flatpak,
       ...
     }:
     let
@@ -43,6 +45,7 @@
             home-manager.nixosModules.home-manager
             sops-nix.nixosModules.sops
             spicetify-nix.nixosModules.spicetify
+            nix-flatpak.nixosModules.nix-flatpak
             {
               networking.hostName = hostname;
               nixpkgs.overlays = [ inputs.self.overlays.default ];
