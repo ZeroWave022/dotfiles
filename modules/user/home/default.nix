@@ -27,6 +27,9 @@
     inkscape
     prusa-slicer
 
+    # Gaming
+    prismlauncher
+
     # Utilities
     filezilla
     kdePackages.kamoso
