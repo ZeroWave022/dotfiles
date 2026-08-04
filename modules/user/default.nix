@@ -8,6 +8,7 @@
     ./programs
     ./secrets
     ./ssh
+    ./syncthing
     ./xdg
     ./zsh
   ];

@@ -4,6 +4,7 @@
 
 {
   config,
+  osConfig,
   pkgs,
   inputs,
   ...
@@ -16,6 +17,10 @@ let
   };
   ssh-secret = {
     sopsFile = inputs.self + /secrets/ssh.yaml;
+    mode = "0600";
+  };
+  syncthing-secret = {
+    sopsFile = inputs.self + /secrets/syncthing.yaml;
     mode = "0600";
   };
   hackerspace-secret = {
@@ -50,6 +55,8 @@ in
     id_hackerspace = ssh-secret // {
       path = "/home/martin/.ssh/id_hackerspace";
     };
+    "syncthing-key-${osConfig.networking.hostName}" = syncthing-secret;
+    "syncthing-cert-${osConfig.networking.hostName}" = syncthing-secret;
     gluteus-hostname = hackerspace-secret;
     gluteus-port = hackerspace-secret;
     phoenix-hostname = hackerspace-secret;
