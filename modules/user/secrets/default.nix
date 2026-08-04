@@ -9,12 +9,25 @@
   ...
 }:
 
+let
+  git-secret = {
+    sopsFile = inputs.self + /secrets/git.yaml;
+    mode = "0600";
+  };
+  ssh-secret = {
+    sopsFile = inputs.self + /secrets/ssh.yaml;
+    mode = "0600";
+  };
+  hackerspace-secret = {
+    sopsFile = inputs.self + /secrets/hackerspace.yaml;
+  };
+in
 {
   home.packages = with pkgs; [
     age
   ];
 
-  sops.defaultSopsFile = inputs.self + /secrets/secrets.yaml;
+  sops.defaultSopsFile = inputs.self + /secrets/default.yaml;
   # This will automatically import SSH keys as age keys
   #sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   # This is using an age key that is expected to already be in the filesystem
@@ -23,42 +36,34 @@
   sops.age.generateKey = false;
   # This is the actual specification of the secrets.
   sops.secrets = {
-    git-gpg = {
-      mode = "0600";
-    };
-    git-gpg-pass = {
-      mode = "0600";
-    };
-    id_git = {
-      mode = "0600";
+    git-gpg = git-secret;
+    git-gpg-pass = git-secret;
+    id_git = ssh-secret // {
       path = "/home/martin/.ssh/id_git";
     };
-    id_git_ntnu = {
-      mode = "0600";
+    id_git_ntnu = ssh-secret // {
       path = "/home/martin/.ssh/id_git_ntnu";
     };
-    id_thinkcentre = {
-      mode = "0600";
+    id_thinkcentre = ssh-secret // {
       path = "/home/martin/.ssh/id_thinkcentre";
     };
-    id_hackerspace = {
-      mode = "0600";
+    id_hackerspace = ssh-secret // {
       path = "/home/martin/.ssh/id_hackerspace";
     };
-    gluteus-hostname = { };
-    gluteus-port = { };
-    phoenix-hostname = { };
-    phoenix-port = { };
-    noodlebar-hostname = { };
-    noodlebar-port = { };
-    dingseboms-hostname = { };
-    dingseboms-port = { };
-    duppeditt-hostname = { };
-    duppeditt-port = { };
-    meieri-hostname = { };
-    meieri-port = { };
-    netrunner-hostname = { };
-    netrunner-port = { };
+    gluteus-hostname = hackerspace-secret;
+    gluteus-port = hackerspace-secret;
+    phoenix-hostname = hackerspace-secret;
+    phoenix-port = hackerspace-secret;
+    noodlebar-hostname = hackerspace-secret;
+    noodlebar-port = hackerspace-secret;
+    dingseboms-hostname = hackerspace-secret;
+    dingseboms-port = hackerspace-secret;
+    duppeditt-hostname = hackerspace-secret;
+    duppeditt-port = hackerspace-secret;
+    meieri-hostname = hackerspace-secret;
+    meieri-port = hackerspace-secret;
+    netrunner-hostname = hackerspace-secret;
+    netrunner-port = hackerspace-secret;
   };
 
   systemd.user.services.replace-ssh-secrets = {
