@@ -5,7 +5,7 @@
 { inputs, ... }:
 
 {
-  sops.defaultSopsFile = inputs.self + /secrets/secrets.yaml;
+  sops.defaultSopsFile = inputs.self + /secrets/default.yaml;
   # This will automatically import SSH keys as age keys
   #sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   # This is using an age key that is expected to already be in the filesystem
@@ -15,6 +15,7 @@
   # This is the actual specification of the secrets.
   sops.secrets = {
     wg-config-file = {
+      sopsFile = inputs.self + /secrets/wireguard.yaml;
       mode = "0600";
     };
   };
