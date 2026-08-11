@@ -208,5 +208,10 @@
         };
       }
     ];
+
+    configFile = {
+      # No audio feedback when changing volume
+      plasmaparc.General.AudioFeedback = false;
+    };
   };
 }
