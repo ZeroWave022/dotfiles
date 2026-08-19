@@ -5,6 +5,7 @@
     # Development
     nixfmt
     nodejs_24
+    pnpm
     python314
     wezterm
 
