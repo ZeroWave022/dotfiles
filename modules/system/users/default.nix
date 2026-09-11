@@ -8,6 +8,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "vboxusers"
     ];
     shell = pkgs.zsh;
   };
