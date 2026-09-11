@@ -20,6 +20,9 @@ in
   networking.networkmanager = {
     enable = true;
     wifi.powersave = false;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+    ];
   };
 
   networking.firewall = {
