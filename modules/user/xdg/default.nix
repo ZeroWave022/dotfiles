@@ -8,4 +8,6 @@
       "application/pdf" = "firefox.desktop";
     };
   };
+
+  xdg.configFile."mimeapps.list".force = true;
 }
