@@ -8,10 +8,17 @@ in
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
-  programs.spicetify = {
-    enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-    ];
+  programs = {
+    spicetify = {
+      enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+      ];
+    };
+
+    texlive = {
+      enable = true;
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
+    };
   };
 }
