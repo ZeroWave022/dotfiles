@@ -4,6 +4,10 @@
   programs.plasma = {
     enable = true;
 
+    # Uncomment and switch to new configuration in order to force-apply plasma-manager config.
+    # Leaving it on true makes the widgets empty on first login, so it is set to false.
+    # overrideConfig = true;
+
     workspace = {
       lookAndFeel = "org.kde.breezedark.desktop";
       theme = "breeze-dark";
