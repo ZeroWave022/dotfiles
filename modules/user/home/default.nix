@@ -31,6 +31,8 @@
     prismlauncher
 
     # Utilities
+    burpsuite
+    fastfetch
     filezilla
     kdePackages.kamoso
     kdePackages.kcalc
