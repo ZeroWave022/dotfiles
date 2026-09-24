@@ -2,7 +2,7 @@
 # May contain duplicates of secrets used the home-manager configuration,
 # if they're needed in both places.
 
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
   sops.defaultSopsFile = inputs.self + /secrets/default.yaml;
@@ -17,6 +17,12 @@
     wg-config-file = {
       sopsFile = inputs.self + /secrets/wireguard.yaml;
       mode = "0600";
+    };
+    winapps-env = {
+      sopsFile = inputs.self + /secrets/winapps.yaml;
+      # Set owner explicitly so the file can be read when running the container
+      owner = config.users.users.martin.name;
+      path = "/run/secrets/winapps.env";
     };
   };
 }

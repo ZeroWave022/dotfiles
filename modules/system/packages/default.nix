@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  winapps,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [
@@ -13,5 +17,9 @@
 
     # Utilities
     lm_sensors
+
+    # Containers
+    winapps.packages."${system}".winapps
+    winapps.packages."${system}".winapps-launcher
   ];
 }

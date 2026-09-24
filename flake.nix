@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -31,6 +35,7 @@
       plasma-manager,
       spicetify-nix,
       nix-flatpak,
+      winapps,
       ...
     }:
     let
@@ -38,7 +43,7 @@
         hostname:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs winapps; };
           modules = [
             ./hosts/${hostname}
             ./modules/system

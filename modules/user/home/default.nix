@@ -43,6 +43,10 @@
     wireshark
   ];
 
+  home.file.".config/winapps/winapps.conf" = {
+    source = ../../../configs/winapps.conf;
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
