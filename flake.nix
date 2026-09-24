@@ -25,6 +25,10 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    secrets = {
+      url = "github:ZeroWave022/dotfiles-secrets";
+      flake = false;
+    };
   };
 
   outputs =

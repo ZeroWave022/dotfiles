@@ -12,19 +12,19 @@
 
 let
   git-secret = {
-    sopsFile = inputs.self + /secrets/git.yaml;
+    sopsFile = inputs.secrets + /git.yaml;
     mode = "0600";
   };
   ssh-secret = {
-    sopsFile = inputs.self + /secrets/ssh.yaml;
+    sopsFile = inputs.secrets + /ssh.yaml;
     mode = "0600";
   };
   syncthing-secret = {
-    sopsFile = inputs.self + /secrets/syncthing.yaml;
+    sopsFile = inputs.secrets + /syncthing.yaml;
     mode = "0600";
   };
   hackerspace-secret = {
-    sopsFile = inputs.self + /secrets/hackerspace.yaml;
+    sopsFile = inputs.secrets + /hackerspace.yaml;
   };
 in
 {
@@ -32,7 +32,7 @@ in
     age
   ];
 
-  sops.defaultSopsFile = inputs.self + /secrets/default.yaml;
+  sops.defaultSopsFile = inputs.secrets + /default.yaml;
   # This will automatically import SSH keys as age keys
   #sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   # This is using an age key that is expected to already be in the filesystem

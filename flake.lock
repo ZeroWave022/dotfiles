@@ -128,9 +128,26 @@
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",
         "winapps": "winapps"
+      }
+    },
+    "secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790285871,
+        "narHash": "sha256-m+cAx8lJ3lETlA6kI5LgQjRO1H0GQMoNxs+PiO1O9DA=",
+        "owner": "ZeroWave022",
+        "repo": "dotfiles-secrets",
+        "rev": "660d30e56571631b13520f8f357d989b63078daf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ZeroWave022",
+        "repo": "dotfiles-secrets",
+        "type": "github"
       }
     },
     "sops-nix": {
