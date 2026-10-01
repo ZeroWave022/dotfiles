@@ -19,7 +19,7 @@
     lm_sensors
 
     # Containers
-    winapps.packages."${system}".winapps
-    winapps.packages."${system}".winapps-launcher
+    winapps.packages."${stdenv.hostPlatform.system}".winapps
+    winapps.packages."${stdenv.hostPlatform.system}".winapps-launcher
   ];
 }
