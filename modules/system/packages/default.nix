@@ -11,9 +11,17 @@
     nixfmt
     nodejs_24
     pnpm
-    python314
     temurin-bin-17
     wezterm
+
+    (pkgs.python314.withPackages (
+      python-pkgs: with python-pkgs; [
+        pip
+        matplotlib
+        numpy
+        jupyter
+      ]
+    ))
 
     # Utilities
     lm_sensors
