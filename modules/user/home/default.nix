@@ -32,6 +32,7 @@
 
     # Utilities
     burpsuite
+    camunda-modeler
     fastfetch
     filezilla
     kdePackages.kamoso
