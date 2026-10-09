@@ -19,6 +19,8 @@
         pip
         matplotlib
         numpy
+        pandas
+        scikit-learn
         jupyter
       ]
     ))
