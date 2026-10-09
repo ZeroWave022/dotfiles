@@ -11,6 +11,7 @@
     nixfmt
     nodejs_24
     pnpm
+    postgresql_18
     temurin-bin-17
     wezterm
 
@@ -32,4 +33,9 @@
     winapps.packages."${stdenv.hostPlatform.system}".winapps
     winapps.packages."${stdenv.hostPlatform.system}".winapps-launcher
   ];
+
+  systemd.tmpfiles.rules = [
+    "d /run/postgresql 0755 martin users - -"
+  ];
+
 }
