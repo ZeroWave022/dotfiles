@@ -6,11 +6,26 @@
     inputs.self.nixosModules.laptop
     inputs.self.nixosModules.flatpak
     inputs.self.nixosModules.gaming.minecraft
+    inputs.self.nixosModules.packages.dev
+    inputs.self.nixosModules.packages.postgres
+    inputs.self.nixosModules.packages.python
+    inputs.self.nixosModules.packages.winapps
   ];
 
   home-manager.users.martin.imports = [
     inputs.self.homeManagerModules.laptop.input
   ];
+
+  local.python = {
+    extraPackages =
+      python-pkgs: with python-pkgs; [
+        matplotlib
+        numpy
+        pandas
+        scikit-learn
+        jupyter
+      ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

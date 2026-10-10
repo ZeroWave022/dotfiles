@@ -70,6 +70,10 @@
         common = import ./modules/system;
         flatpak = import ./modules/system/flatpak;
         gaming.minecraft = import ./modules/system/gaming/minecraft.nix;
+        packages.dev = import ./modules/system/packages/dev.nix;
+        packages.postgres = import ./modules/system/packages/postgres.nix;
+        packages.python = import ./modules/system/packages/python.nix;
+        packages.winapps = import ./modules/system/packages/winapps.nix;
         laptop = import ./modules/laptop;
       };
       homeManagerModules = {
