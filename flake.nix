@@ -79,7 +79,9 @@
       };
       homeManagerModules = {
         common = import ./modules/user;
+        desktop = import ./modules/user/desktop;
         packages = import ./modules/user/packages;
+        programs = import ./modules/user/programs;
         winapps = import ./modules/user/winapps;
         laptop = {
           input = import ./modules/laptop/input;

@@ -2,10 +2,8 @@
 
 {
   imports = [
-    ./desktop
     ./git
     ./home
-    ./programs
     ./secrets
     ./ssh
     ./syncthing
