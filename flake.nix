@@ -74,6 +74,7 @@
         packages.postgres = import ./modules/system/packages/postgres.nix;
         packages.python = import ./modules/system/packages/python.nix;
         packages.winapps = import ./modules/system/packages/winapps.nix;
+        virtualisation.virtualbox = import ./modules/system/virtualisation/virtualbox.nix;
         laptop = import ./modules/laptop;
       };
       homeManagerModules = {
