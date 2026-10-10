@@ -78,7 +78,9 @@
         laptop = import ./modules/laptop;
       };
       homeManagerModules = {
-        user = import ./modules/user;
+        common = import ./modules/user;
+        packages = import ./modules/user/packages;
+        winapps = import ./modules/user/winapps;
         laptop = {
           input = import ./modules/laptop/input;
         };

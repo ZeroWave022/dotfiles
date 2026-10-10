@@ -13,6 +13,8 @@
   ];
 
   home-manager.users.martin.imports = [
+    inputs.self.homeManagerModules.packages
+    inputs.self.homeManagerModules.winapps
     inputs.self.homeManagerModules.laptop.input
   ];
 
