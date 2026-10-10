@@ -1,8 +1,8 @@
-{ ... }:
+{ osConfig, ... }:
 
 {
-  home.username = "martin";
-  home.homeDirectory = "/home/martin";
+  home.username = osConfig.local.username;
+  home.homeDirectory = "/home/${osConfig.local.username}";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

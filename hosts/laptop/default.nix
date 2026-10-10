@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
     inputs.self.nixosModules.packages.winapps
   ];
 
-  home-manager.users.martin.imports = [
+  home-manager.users.${config.local.username}.imports = [
     inputs.self.homeManagerModules.desktop
     inputs.self.homeManagerModules.packages
     inputs.self.homeManagerModules.programs

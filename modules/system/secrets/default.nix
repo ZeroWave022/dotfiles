@@ -21,7 +21,7 @@
     winapps-env = {
       sopsFile = inputs.secrets + /winapps.yaml;
       # Set owner explicitly so the file can be read when running the container
-      owner = config.users.users.martin.name;
+      owner = config.local.username;
       path = "/run/secrets/winapps.env";
     };
   };

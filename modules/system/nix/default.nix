@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   nix.settings = {
@@ -6,7 +6,7 @@
 
     trusted-users = [
       "root"
-      "martin"
+      config.local.username
     ];
 
     experimental-features = [

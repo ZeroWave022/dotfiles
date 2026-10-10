@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
-  users.users."martin" = {
+  users.users.${config.local.username} = {
     isNormalUser = true;
-    description = "Martin";
+    description = "Primary user";
     extraGroups = [
       "networkmanager"
       "wheel"

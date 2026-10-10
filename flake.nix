@@ -44,7 +44,7 @@
     }:
     let
       mkHost =
-        hostname:
+        { hostname, username }:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs winapps; };
@@ -57,6 +57,7 @@
             nix-flatpak.nixosModules.nix-flatpak
             {
               networking.hostName = hostname;
+              local.username = username;
               nixpkgs.overlays = [ inputs.self.overlays.default ];
             }
           ];
@@ -88,7 +89,10 @@
         };
       };
       nixosConfigurations = {
-        laptop = mkHost "laptop";
+        laptop = mkHost {
+          hostname = "laptop";
+          username = "martin";
+        };
       };
     };
 }

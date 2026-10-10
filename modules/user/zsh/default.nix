@@ -1,10 +1,10 @@
-{ ... }:
+{ osConfig, ... }:
 
 {
   programs.zsh = {
     enable = true;
     localVariables = {
-      DEFAULT_USER = "martin";
+      DEFAULT_USER = osConfig.local.username;
     };
     oh-my-zsh = {
       enable = true;

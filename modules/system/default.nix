@@ -10,6 +10,7 @@
     ./home-manager
     ./i18n
     ./keyboard
+    ./local
     ./networking
     ./nix
     ./packages

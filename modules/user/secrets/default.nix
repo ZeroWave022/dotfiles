@@ -11,6 +11,7 @@
 }:
 
 let
+  username = osConfig.local.username;
   git-secret = {
     sopsFile = inputs.secrets + /git.yaml;
     mode = "0600";
@@ -44,16 +45,16 @@ in
     git-gpg = git-secret;
     git-gpg-pass = git-secret;
     id_git = ssh-secret // {
-      path = "/home/martin/.ssh/id_git";
+      path = "/home/${username}/.ssh/id_git";
     };
     id_git_ntnu = ssh-secret // {
-      path = "/home/martin/.ssh/id_git_ntnu";
+      path = "/home/${username}/.ssh/id_git_ntnu";
     };
     id_thinkcentre = ssh-secret // {
-      path = "/home/martin/.ssh/id_thinkcentre";
+      path = "/home/${username}/.ssh/id_thinkcentre";
     };
     id_hackerspace = ssh-secret // {
-      path = "/home/martin/.ssh/id_hackerspace";
+      path = "/home/${username}/.ssh/id_hackerspace";
     };
     "syncthing-key-${osConfig.networking.hostName}" = syncthing-secret;
     "syncthing-cert-${osConfig.networking.hostName}" = syncthing-secret;
@@ -89,7 +90,7 @@ in
       ProtectSystem = "strict";
       ProtectHome = false;
       NoNewPrivileges = true;
-      ReadWritePaths = [ "/home/martin/.ssh" ];
+      ReadWritePaths = [ "/home/${username}/.ssh" ];
       ExecStart = pkgs.writeShellScript "replace-ssh-secrets" ''
         SSH_CONFIG="${config.home.homeDirectory}/.ssh/config"
         if [ ! -f "$SSH_CONFIG" ]; then
@@ -136,7 +137,7 @@ in
       ProtectSystem = "strict";
       ProtectHome = false;
       NoNewPrivileges = true;
-      ReadWritePaths = [ "/home/martin/.gnupg" ];
+      ReadWritePaths = [ "/home/${username}/.gnupg" ];
       ExecStart = "${pkgs.gnupg}/bin/gpg --batch --passphrase-file ${config.sops.secrets.git-gpg-pass.path} --import ${config.sops.secrets.git-gpg.path}";
     };
   };
