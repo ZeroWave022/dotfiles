@@ -1,10 +1,5 @@
 { ... }:
 
 {
-  services.flatpak = {
-    enable = true;
-    packages = [
-      "com.mojang.Minecraft"
-    ];
-  };
+  services.flatpak.enable = true;
 }

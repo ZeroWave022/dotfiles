@@ -4,6 +4,8 @@
   imports = [
     ./hardware-configuration.nix
     inputs.self.nixosModules.laptop
+    inputs.self.nixosModules.flatpak
+    inputs.self.nixosModules.gaming.minecraft
   ];
 
   home-manager.users.martin.imports = [

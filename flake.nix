@@ -67,7 +67,9 @@
         synaTudor = final.callPackage ./pkgs/synaTudor { };
       };
       nixosModules = {
-        system = import ./modules/system;
+        common = import ./modules/system;
+        flatpak = import ./modules/system/flatpak;
+        gaming.minecraft = import ./modules/system/gaming/minecraft.nix;
         laptop = import ./modules/laptop;
       };
       homeManagerModules = {
