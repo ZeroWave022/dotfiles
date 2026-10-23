@@ -24,11 +24,13 @@
   local.python = {
     extraPackages =
       python-pkgs: with python-pkgs; [
+        jupyter
+        keras
         matplotlib
         numpy
         pandas
+        pydot
         scikit-learn
-        jupyter
       ];
   };
 
