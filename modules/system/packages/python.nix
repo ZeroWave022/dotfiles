@@ -20,7 +20,7 @@ in
 
   config = {
     environment.systemPackages = [
-      (pkgs.python314.withPackages (python-pkgs: [ python-pkgs.pip ] ++ cfg.extraPackages python-pkgs))
+      (pkgs.python313.withPackages (python-pkgs: [ python-pkgs.pip ] ++ cfg.extraPackages python-pkgs))
     ];
   };
 }
