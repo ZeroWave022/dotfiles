@@ -4,8 +4,9 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/plain" = "org.kde.kwrite.desktop";
       "application/pdf" = "firefox.desktop";
+      "application/x-ipynb+json" = "code.desktop";
+      "text/plain" = "org.kde.kwrite.desktop";
     };
   };
 
