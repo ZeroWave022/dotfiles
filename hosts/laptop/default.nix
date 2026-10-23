@@ -10,6 +10,7 @@
     inputs.self.nixosModules.packages.postgres
     inputs.self.nixosModules.packages.python
     inputs.self.nixosModules.packages.winapps
+    inputs.self.nixosModules.virtualisation.virtualbox
   ];
 
   home-manager.users.${config.local.username}.imports = [
