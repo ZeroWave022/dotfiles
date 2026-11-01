@@ -58,6 +58,21 @@
             params.keep = "5";
           };
         };
+        "Prism Launcher instances" = {
+          enable = true;
+          id = "nex9n-uvf4m";
+          devices = [
+            "Server"
+            "Desktop"
+            "Laptop"
+          ];
+          path = "~/.local/share/PrismLauncher/instances";
+          order = "smallestFirst";
+          versioning = {
+            type = "simple";
+            params.keep = "5";
+          };
+        };
       };
     };
   };
