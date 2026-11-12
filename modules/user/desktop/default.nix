@@ -44,7 +44,7 @@
                 "applications:org.kde.dolphin.desktop"
                 "applications:org.wezfurlong.wezterm.desktop"
                 "applications:code.desktop"
-                "applications:obsidian.desktop"
+                "applications:md.obsidian.Obsidian.desktop"
                 "applications:spotify.desktop"
                 "applications:firefox.desktop"
               ];
