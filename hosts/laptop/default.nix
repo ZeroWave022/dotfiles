@@ -24,6 +24,8 @@
   local.python = {
     extraPackages =
       python-pkgs: with python-pkgs; [
+        gymnasium
+        imageio
         jupyter
         keras
         matplotlib
@@ -31,6 +33,8 @@
         pandas
         pydot
         scikit-learn
+        shap
+        torch
       ];
   };
 
